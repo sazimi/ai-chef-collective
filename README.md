@@ -163,6 +163,29 @@ AZURE_MODEL_DEPLOYMENT_NAME=gpt-4
 3. Navigate to Settings → Project properties
 4. Copy the connection string
 
+## 🐳 Docker Deployment
+
+Run the entire application with Docker:
+
+```bash
+# Make sure your .env file is configured in backend/
+docker-compose up -d
+```
+
+Access:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
+
+Stop the application:
+```bash
+docker-compose down
+```
+1. Go to [Azure AI Foundry](https://ai.azure.com)
+2. Select your project
+3. Navigate to Settings → Project properties
+4. Copy the connection string
+
 ## 🧪 Development
 
 ### Backend Development
