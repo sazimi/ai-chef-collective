@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: ai-chef-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - AZURE_AI_PROJECT_CONNECTION_STRING=${AZURE_AI_PROJECT_CONNECTION_STRING}
+      - AZURE_MODEL_DEPLOYMENT_NAME=${AZURE_MODEL_DEPLOYMENT_NAME}
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: ai-chef-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  default:
+    name: ai-chef-network
